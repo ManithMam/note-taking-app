@@ -1,1 +1,2 @@
-export {}
+import * as React from 'react';
+
