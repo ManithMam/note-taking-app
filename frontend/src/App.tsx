@@ -30,11 +30,13 @@ function NoteTaking(){
     );
 }
 
-function NoteDisplay(){        
+function NoteDisplay(props: {notes: note[]}){        
 
-    const test = DATA.map((note) => (
-        <div>
-            <ul key={note.id}>{note.content}</ul>
+    const {notes} = props
+
+    const test = notes.map((note) => (
+        <div key={note.id}>
+            <ul>{note.content}</ul>
             <input type="button"/>
         </div>
     ))
@@ -62,7 +64,7 @@ function NoteTable(){
     return(
         <div>
             <NoteTaking />
-            <NoteDisplay />
+            <NoteDisplay notes={DATA} />
         </div>
     )
 }
