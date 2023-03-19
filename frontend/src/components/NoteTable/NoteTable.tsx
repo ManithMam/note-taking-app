@@ -7,7 +7,7 @@ export default function NoteTable(){
     return(
         <div>
             <NoteTaking />
-            <NoteDisplay notes={DATA} />
+            {DATA.map((note) => <NoteDisplay notes={note} key={note.id}/>)}
         </div>
     )
 }
