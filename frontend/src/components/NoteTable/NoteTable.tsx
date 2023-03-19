@@ -1,6 +1,6 @@
-import { note } from "../../Types/note"
 import NoteTaking from "./NoteTaking"
 import NoteDisplay from "./NoteDisplay"
+import { DATA } from "../../Data/data"
 
 
 export default function NoteTable(){
@@ -12,8 +12,3 @@ export default function NoteTable(){
     )
 }
 
-const DATA : note[] = [
-    {content: "Das ist ne Notiz", id: "idhaha2"},
-    {content: "Wow die zweite", id: "idhaha3"},
-    {content: "Gleich ne dritte???", id: "idhaha4"}    
-] 
