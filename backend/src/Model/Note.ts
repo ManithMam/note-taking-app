@@ -12,10 +12,14 @@ const NoteSchema = new Schema ({
         type: String,
         required: true
     },
+    id: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: () => Date.now()
     }
 })
 
-module.exports = mongoose.model("Note", NoteSchema)
+export default mongoose.model("Note", NoteSchema)
