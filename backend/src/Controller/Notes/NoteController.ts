@@ -1,9 +1,12 @@
-import express from "express";
 import Note from "../../Model/Note.js";
 
 export async function createNote(contentInput: String){
     try{
-        const note = await Note.create({content: contentInput})
+        const note = new Note({
+            content: contentInput
+        })
+        note.save()
+        //const note = await Note.create({content: contentInput})
         console.log(note)
     }
     catch(err){
@@ -18,6 +21,5 @@ export async function deleteNote(noteId: String){
     }
     catch(err){
         console.log('couldnt delete')
-    }   
-    
+    }       
 }

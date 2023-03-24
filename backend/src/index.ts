@@ -11,6 +11,10 @@ const url = `mongodb://127.0.0.1:27017/NoteTakingApp`
 mongoose.connect(url)
 .then(() => {
     console.log('Connecting to database NoteTakingApp...')    
+}) 
+
+app.get('/test', (req, res) => {
+    res.status(200).send("ok alles gut")
 })
 
 
