@@ -1,24 +1,21 @@
-import mongoose from 'mongoose'
+import mongoose, {Types} from 'mongoose'
 
 const { Schema } = mongoose
 
-export interface note {
+interface note {
     content: string,
-    id: string
+    _id: string
 }
 
-const NoteSchema = new Schema ({
+const NoteSchema = new Schema<note> ({
     content: {
         type: String,
         required: true
     },
-    id: {
-        type: Schema.Types.ObjectId,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: () => Date.now()
+    _id: {
+        type: String,
+        required: true,
+        default: new mongoose.Types.ObjectId().toString()
     }
 })
 

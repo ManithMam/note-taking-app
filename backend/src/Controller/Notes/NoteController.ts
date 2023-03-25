@@ -1,12 +1,11 @@
 import Note from "../../Model/Note.js";
 
-export async function createNote(contentInput: String){
+async function createNote(contentInput: string){
     try{
         const note = new Note({
             content: contentInput
         })
-        note.save()
-        //const note = await Note.create({content: contentInput})
+        note.save()        
         console.log(note)
     }
     catch(err){
@@ -14,12 +13,18 @@ export async function createNote(contentInput: String){
     }        
 }
 
-export async function deleteNote(noteId: String){
+ async function deleteNote(_id: string){
     try{
-        const note = await Note.findById({noteId})
-        note.deleteOne()
+         await Note.findByIdAndDelete(_id)
     }
     catch(err){
         console.log('couldnt delete')
     }       
 }
+
+async function getNotes(){
+    await Note.find({})
+}
+
+
+export default {getNotes, createNote, deleteNote}
