@@ -22,8 +22,9 @@ async function createNote(contentInput: string){
     }       
 }
 
-async function getNotes(){
-    await Note.find({})
+ function getNotes(){
+    const note = Note.find({})
+    return note
 }
 
 

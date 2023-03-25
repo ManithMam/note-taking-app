@@ -1,13 +1,12 @@
-import Note from "../Model/Note.js"
 import express from "express"
-import {default as noteController} from "../Controller/Notes/NoteController.js"
+import NoteController, {default as noteController} from "../Controller/Notes/NoteController.js"
 
 
 const noteRouter = express.Router()
 
 noteRouter.get('/notes', async (req, res) => {   
     try{
-       const notes = await Note.find({})
+       const notes = await NoteController.getNotes()
        console.log(notes)
        res.json(notes).status(200)       
    }
