@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const { Schema } = mongoose
 
-interface note {
+type note = {
     content: string,
     _id: string
 }
