@@ -1,5 +1,6 @@
 import express from "express"
 import UserController, {default as userController} from "../Controller/User/UserController.js"
+import User from "../Model/User.js"
 
 const userRouter = express.Router()
 
@@ -22,6 +23,19 @@ userRouter.patch('/users', async (req, res) => {
         
         UserController.createNoteForUser(noteContent, username) 
         res.send(noteContent).status(200)
+    }
+    catch(err){
+        res.status(500).send('Internal Server Error')
+    }
+})
+
+userRouter.patch('/users/deleteNote', async(req, res) => {
+    try{
+        const noteId = req.body.noteId
+        const username = req.body.username
+
+        UserController.deleteUserNote(noteId, username)
+        res.send("deleted note").status(200)
     }
     catch(err){
         res.status(500).send('Internal Server Error')
