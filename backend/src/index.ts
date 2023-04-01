@@ -1,6 +1,7 @@
 import  express  from "express";
 import mongoose from "mongoose";
 import { userRouter } from "./Routes/UserRoutes.js";
+import { noteRouter } from "./Routes/NoteRoutes.js";
 
 const app = express()
 
@@ -14,7 +15,7 @@ mongoose.connect(url)
     console.log('Connecting to database NoteTakingApp...')    
 })
 
-
+app.use(noteRouter)
 app.use(userRouter)
 app.listen(3000)
 console.log('Server listening on Port 3000')
