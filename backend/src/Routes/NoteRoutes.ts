@@ -1,7 +1,5 @@
 import express from "express"
 import NoteController from "../Controller/Note/NoteController.js"
-import { note } from "../Model/Note.js"
-
 
 const noteRouter = express.Router()
 
