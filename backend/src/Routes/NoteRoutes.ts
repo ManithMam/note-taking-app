@@ -1,5 +1,6 @@
 import express from "express"
 import NoteController, {default as noteController} from "../Controller/Notes/NoteController.js"
+import { note } from "../Model/Note.js"
 
 
 const noteRouter = express.Router()
@@ -24,6 +25,18 @@ noteRouter.post('/notes/add', (req, res) => {
     catch(err){
         res.status(500).send('Internal Server Error')
     }       
+})
+
+noteRouter.patch('/notes', async (req, res) => {
+    try{
+        const noteContent: string = req.body.noteContent
+        const username: string = req.body.username
+        NoteController.createNoteForUser(noteContent, username) 
+        res.send(noteContent).status(200)
+    }
+    catch(err){
+        res.status(500).send('Internal Server Error')
+    }
 })
 
 noteRouter.delete('/notes', async (req, res) => {

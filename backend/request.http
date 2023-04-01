@@ -29,3 +29,13 @@ content-type: application/json
     "username": "User123",
     "password": "123password123"
 }
+
+###
+
+PATCH http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "noteContent": "A new task",
+    "username": "User123"
+}

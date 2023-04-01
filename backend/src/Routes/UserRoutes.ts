@@ -15,4 +15,17 @@ userRouter.post('/users', async (req, res) => {
     }
 })
 
+userRouter.patch('/users', async (req, res) => {
+    try{
+        const noteContent: string = req.body.noteContent
+        const username: string = req.body.username
+        
+        UserController.createNoteForUser(noteContent, username) 
+        res.send(noteContent).status(200)
+    }
+    catch(err){
+        res.status(500).send('Internal Server Error')
+    }
+})
+
 export {userRouter}
