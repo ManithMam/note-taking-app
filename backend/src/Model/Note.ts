@@ -4,7 +4,7 @@ const { Schema } = mongoose
 
 export type note = {
     content: string,
-    _id: string
+    stringId: string
 }
 
 const NoteSchema = new Schema<note> ({
@@ -12,7 +12,7 @@ const NoteSchema = new Schema<note> ({
         type: String,
         required: true
     },
-    _id: {
+    stringId: {
         type: String,
         required: true,
         default: new mongoose.Types.ObjectId().toString()

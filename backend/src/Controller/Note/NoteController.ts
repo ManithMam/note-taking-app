@@ -13,9 +13,9 @@ async function createNote(contentInput: string){
     }        
 }
 
-async function deleteNote(_id: string){
+async function deleteNote(id: string){
     try{
-        await Note.findByIdAndDelete(_id)
+        await Note.deleteOne({stringId: id})
     }
     catch(err){
         console.log('couldnt delete')

@@ -41,7 +41,7 @@ async function createNoteForUser(noteContent: string, username: string){
 async function deleteUserNote(noteId: string, username: string){
     try{
         const user = await getUser(username)
-        const index = user.notes.findIndex((note) => note._id === noteId)
+        const index = user.notes.findIndex((note) => note.stringId === noteId)
         user.notes.splice(index, 1)
         user.save()
     }

@@ -5,7 +5,7 @@ export default function NoteDisplay(props: {notes: note}){
     const {notes} = props
 
     const test = (
-        <div key={notes.id}>
+        <div key={notes.stringId}>
             <ul>{notes.content}</ul>
             <input type="button"/>
         </div>
