@@ -4,7 +4,7 @@ export default function NoteDisplay(props: {notes: note}){
 
     const {notes} = props
 
-    const test = (
+    const display = (
         <div key={notes.stringId}>
             <ul>{notes.content}</ul>
             <input type="button"/>
@@ -14,7 +14,7 @@ export default function NoteDisplay(props: {notes: note}){
     
     return(
         <div>
-            <ul>{test}</ul>
+            <ul>{display}</ul>
         </div>
     )    
 }

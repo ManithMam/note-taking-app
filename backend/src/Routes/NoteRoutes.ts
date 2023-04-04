@@ -5,8 +5,7 @@ const noteRouter = express.Router()
 
 noteRouter.get('/notes', async (req, res) => {   
     try{
-       const notes = await NoteController.getNotes()
-       console.log(notes)
+       const notes = await NoteController.getNotes()       
        res.json(notes).status(200)       
    }
    catch(err){

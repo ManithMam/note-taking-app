@@ -10,7 +10,7 @@ export default function NoteTable(){
     const [error, setError] = useState<Error>()
 
     useEffect(() => {
-        fetch('http://localhost:3000/notes', {
+        fetch('http://localhost:8080/notes', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
