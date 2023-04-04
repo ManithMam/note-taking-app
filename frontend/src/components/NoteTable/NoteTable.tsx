@@ -7,7 +7,7 @@ export default function NoteTable(){
 
     const [notes, setNotes] = useState<note[]>([])
     const [isLoaded, setLoaded] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState<Error>()
 
     useEffect(() => {
         fetch('http://localhost:3000/notes', {
@@ -22,8 +22,15 @@ export default function NoteTable(){
             .then( (notesFromDB) => {
                 setLoaded(true)
                 setNotes(notesFromDB)
-            })
+            }, (error: Error) => {
+                setLoaded(true)
+                setError(error)
+            })            
     }, [])      
+
+    if(error){
+        return <div>{error.message}</div>
+    }
 
     if(!isLoaded){
         return <div>Loading</div>
