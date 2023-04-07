@@ -33,15 +33,19 @@ export default function NoteTable(){
     }
 
     function deleteNote(note: note){
-        fetch('http://localhost:8080/notes', {
+        fetch(`http://localhost:8080/notes/${note._id}`, {
             headers: { 'Content-Type': 'application/json' },
             method: "DELETE",
-            mode: "cors",
-            body: JSON.stringify({id: note._id})
-        }), (error: Error) => {
+            mode: "cors"
+        })
+        .then(res =>  res.json())
+        .then((remainingNotes) => {
+            setNotes(remainingNotes)
+        })
+        , (error: Error) => {
             setError(error)
-        }
-        fetchNotes()   
+        }        
+               
     }
 
     if(error){

@@ -26,9 +26,10 @@ noteRouter.post('/notes', (req, res) => {
 
 noteRouter.delete('/notes/:id', async (req, res) => {
     try{
-        const noteId: string = req.params.id
-        const deletedNote = await NoteController.deleteNote(noteId)
-        res.json(deletedNote).status(200)
+        const noteId: string = req.params.id     
+        await NoteController.deleteNote(noteId)  
+        const remainingNotes = await NoteController.getNotes()    
+        res.json(remainingNotes).status(200)
     }
     catch(err){
         res.status(500).send('Internal Server Error')
