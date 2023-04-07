@@ -18,7 +18,6 @@ mongoose.connect(url)
 })
 
 app.use(noteRouter)
-app.use(userRouter)
 app.listen(8080)
 console.log('Server listening on Port 3000')
 

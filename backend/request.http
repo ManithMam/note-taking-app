@@ -7,17 +7,13 @@ POST http://localhost:8080/notes HTTP/1.1
 content-type: application/json
 
 {
-    "content": "test"
+    "content": "test2"
 }
 
 ###
 
-DELETE http://localhost:8080/notes HTTP/1.1
-content-type: application/json
-
-{
-    "id": "643022348552bfd2115d403e"
-}
+DELETE http://localhost:8080/notes/64304a448465cd47ee6db544 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
 
 ###
 

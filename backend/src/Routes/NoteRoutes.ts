@@ -24,9 +24,9 @@ noteRouter.post('/notes', (req, res) => {
     }       
 })
 
-noteRouter.delete('/notes', async (req, res) => {
+noteRouter.delete('/notes/:id', async (req, res) => {
     try{
-        const noteId: string = req.body.id
+        const noteId: string = req.params.id
         const deletedNote = await NoteController.deleteNote(noteId)
         res.json(deletedNote).status(200)
     }
