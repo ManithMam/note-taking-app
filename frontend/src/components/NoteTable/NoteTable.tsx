@@ -38,7 +38,9 @@ export default function NoteTable(){
             method: "DELETE",
             mode: "cors",
             body: JSON.stringify({id: note._id})
-        })        
+        }), (error: Error) => {
+            setError(error)
+        }
         fetchNotes()   
     }
 
