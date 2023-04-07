@@ -37,7 +37,7 @@ export default function NoteTable(){
             headers: { 'Content-Type': 'application/json' },
             method: "DELETE",
             mode: "cors",
-            body: JSON.stringify({id: note.stringId})
+            body: JSON.stringify({id: note._id})
         })        
         fetchNotes()   
     }
@@ -53,7 +53,7 @@ export default function NoteTable(){
         return(
             <div>
                 <NoteTaking />
-                {notes.map((note) => <NoteDisplay note={note} key={note.stringId} deleteNote_={deleteNote}/>)}
+                {notes.map((note) => <NoteDisplay note={note} key={note._id} deleteNote_={deleteNote}/>)}
             </div>
         )
     }

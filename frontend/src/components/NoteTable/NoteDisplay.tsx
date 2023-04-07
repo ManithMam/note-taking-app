@@ -6,7 +6,7 @@ export default function NoteDisplay(props: {note: note, deleteNote_: Function}){
          
 
     const display = (
-        <div key={note.stringId}>
+        <div key={note._id}>
             <ul>{note.content}</ul>            
             <button onClick={() => deleteNote_(note)}>Delete</button>
         </div>
