@@ -38,7 +38,7 @@ async function createNoteForUser(noteContent: string, username: string){
     }
 }
 
-async function deleteUserNote(noteId: string, username: string){
+/* async function deleteUserNote(noteId: string, username: string){
     try{
         const user = await getUser(username)
         const index = user.notes.findIndex((note) => note.stringId === noteId)
@@ -48,6 +48,6 @@ async function deleteUserNote(noteId: string, username: string){
     catch(err){
         console.log("Couldnt delete note")
     }
-}
+} */
 
-export default {createUser, getUser, createNoteForUser, deleteUserNote}
+export default {createUser, getUser, createNoteForUser}

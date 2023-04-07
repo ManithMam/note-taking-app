@@ -1,4 +1,4 @@
-import Note, { note } from "../../Model/Note.js";
+import Note  from "../../Model/Note.js";
 
 async function createNote(contentInput: string){
     try{
@@ -15,7 +15,7 @@ async function createNote(contentInput: string){
 
 async function deleteNote(id: string){
     try{
-        await Note.deleteOne({stringId: id})
+        await Note.deleteOne({_id: id})
     }
     catch(err){
         console.log('couldnt delete')

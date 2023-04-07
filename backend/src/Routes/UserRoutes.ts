@@ -40,7 +40,7 @@ userRouter.patch('/users', async (req, res) => {
     }
 })
 
-userRouter.patch('/users/deleteNote', async(req, res) => {
+/* userRouter.patch('/users/deleteNote', async(req, res) => {
     try{
         const noteId: string = req.body.noteId
         const username: string = req.body.username
@@ -51,6 +51,6 @@ userRouter.patch('/users/deleteNote', async(req, res) => {
     catch(err){
         res.status(500).send('Internal Server Error')
     }
-})
+}) */
 
 export {userRouter}
