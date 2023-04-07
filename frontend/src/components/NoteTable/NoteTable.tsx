@@ -10,6 +10,10 @@ export default function NoteTable(){
     const [error, setError] = useState<Error>()
 
     useEffect(() => {
+        fetchNotes()           
+    }, [])      
+
+    function fetchNotes() {
         fetch('http://localhost:8080/notes', {
             headers: {
                 'Accept': 'application/json',
@@ -25,8 +29,18 @@ export default function NoteTable(){
             }, (error: Error) => {
                 setLoaded(true)
                 setError(error)
-            })            
-    }, [])      
+            }) 
+    }
+
+    function deleteNote(note: note){
+        fetch('http://localhost:8080/notes', {
+            headers: { 'Content-Type': 'application/json' },
+            method: "DELETE",
+            mode: "cors",
+            body: JSON.stringify({id: note.stringId})
+        })        
+        fetchNotes()   
+    }
 
     if(error){
         return <div>{error.message}</div>
@@ -39,7 +53,7 @@ export default function NoteTable(){
         return(
             <div>
                 <NoteTaking />
-                {notes.map((note) => <NoteDisplay notes={note} key={note.stringId}/>)}
+                {notes.map((note) => <NoteDisplay note={note} key={note.stringId} deleteNote_={deleteNote}/>)}
             </div>
         )
     }

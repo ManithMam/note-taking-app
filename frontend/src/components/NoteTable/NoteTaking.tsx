@@ -20,8 +20,8 @@ export default function NoteTaking(){
                 <label>
                     Enter Note:
                     <input type="text" ref={input}/>
-                </label>
-                <input type="submit" onClick={sendNotes}/>                
+                </label>                 
+                <button onClick={sendNotes}>Create new note</button>            
             </form>
         </div>
     );

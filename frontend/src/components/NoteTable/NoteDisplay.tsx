@@ -1,22 +1,14 @@
 import { note } from "../../Types/note"
 
-export default function NoteDisplay(props: {notes: note}){        
+export default function NoteDisplay(props: {note: note, deleteNote_: Function}){        
 
-    const {notes} = props
-
-    function deleteNote(){
-        fetch('http://localhost:8080/notes', {
-            headers: { 'Content-Type': 'application/json' },
-            method: "DELETE",
-            mode: "cors",
-            body: JSON.stringify({id: notes.stringId})
-        })
-    }
+    const {note, deleteNote_} = props
+         
 
     const display = (
-        <div key={notes.stringId}>
-            <ul>{notes.content}</ul>
-            <input type="button" onClick={deleteNote}/>
+        <div key={note.stringId}>
+            <ul>{note.content}</ul>            
+            <button onClick={() => deleteNote_(note)}>Delete</button>
         </div>
     )    
     
