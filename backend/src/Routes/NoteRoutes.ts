@@ -1,5 +1,5 @@
 import express from "express"
-import NoteController from "../Controller/Note/NoteController.js"
+import NoteController from "../Controller/NoteController.js"
 
 const noteRouter = express.Router()
 

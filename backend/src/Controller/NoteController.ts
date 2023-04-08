@@ -1,4 +1,4 @@
-import Note  from "../../Model/Note.js";
+import Note  from "../Model/Note.js";
 
 async function createNote(contentInput: string){
     try{

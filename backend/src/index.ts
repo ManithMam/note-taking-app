@@ -1,6 +1,5 @@
 import  express  from "express";
 import mongoose from "mongoose";
-import { userRouter } from "./Routes/UserRoutes.js";
 import { noteRouter } from "./Routes/NoteRoutes.js";
 import cors from 'cors'
 
