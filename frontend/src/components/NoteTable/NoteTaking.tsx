@@ -23,8 +23,7 @@ export default function NoteTaking(props: {setNotes: Function, setError: Functio
     }       
 
     return (
-        <div>
-            <h1>Note</h1>
+        <div>            
             <form>
                 <label>
                     Enter Note:
