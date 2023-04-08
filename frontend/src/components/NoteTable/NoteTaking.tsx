@@ -1,8 +1,8 @@
 import { useRef } from "react"
 
-export default function NoteTaking(props: {setNotes: Function} ){     
+export default function NoteTaking(props: {setNotes: Function, setError: Function} ){     
     
-    const {setNotes} = props
+    const {setNotes, setError} = props
 
     const input = useRef<HTMLInputElement>(null)    
 
@@ -17,6 +17,9 @@ export default function NoteTaking(props: {setNotes: Function} ){
         .then(((newNotes) => {
             setNotes(newNotes)
         } ))
+        , (error: Error) => {
+            setError(error)
+        }   
     }       
 
     return (

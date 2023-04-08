@@ -2,6 +2,7 @@ import  express  from "express";
 import mongoose from "mongoose";
 import { noteRouter } from "./Routes/NoteRoutes.js";
 import cors from 'cors'
+import { errorHandling } from "./Middleware/ErrorHandler.js";
 
 const app = express()
 
@@ -16,7 +17,11 @@ mongoose.connect(url)
     console.log('Connecting to database NoteTakingApp...')    
 })
 
+
 app.use(noteRouter)
+
+app.use(errorHandling)
+
 app.listen(8080)
 console.log('Server listening on Port 3000')
 

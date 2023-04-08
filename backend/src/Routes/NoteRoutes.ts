@@ -3,17 +3,26 @@ import NoteController from "../Controller/NoteController.js"
 
 const noteRouter = express.Router()
 
-noteRouter.get('/notes', async (req, res) => {   
+noteRouter.get('/notes', async (req, res, next) => {   
     try{
        const notes = await NoteController.getNotes()       
        res.json(notes).status(200)       
    }
    catch(err){
-       res.status(500).send('Internal Server Error')
+       next(err)
    } 
 })
 
-noteRouter.post('/notes', async (req, res) => {
+noteRouter.get('/', (req, res, next) => {
+    try{
+        throw new Error('Sth went wrong')
+    }
+    catch(err){
+        next(err)
+    }
+})
+
+noteRouter.post('/notes', async (req, res, next) => {
     try{
         const noteContent: string = req.body.content
         await NoteController.createNote(noteContent)
@@ -21,11 +30,11 @@ noteRouter.post('/notes', async (req, res) => {
         res.json(newNotes).status(200)
     }
     catch(err){
-        res.status(500).send('Internal Server Error')
+        next(err)
     }       
 })
 
-noteRouter.delete('/notes/:id', async (req, res) => {
+noteRouter.delete('/notes/:id', async (req, res, next) => {
     try{
         const noteId: string = req.params.id     
         await NoteController.deleteNote(noteId)  
@@ -33,7 +42,7 @@ noteRouter.delete('/notes/:id', async (req, res) => {
         res.json(remainingNotes).status(200)
     }
     catch(err){
-        res.status(500).send('Internal Server Error')
+        next(err)
     }
 })
 

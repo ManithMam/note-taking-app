@@ -59,7 +59,7 @@ export default function NoteTable(){
     else{
         return(
             <div>
-                <NoteTaking setNotes={setNotes}/>
+                <NoteTaking setNotes={setNotes} setError={setError}/>
                 {notes.map((note) => <NoteDisplay note={note} key={note._id} deleteNote_={deleteNote}/>)}
             </div>
         )
