@@ -9,10 +9,6 @@ export default function NoteTable(){
     const [isLoaded, setLoaded] = useState(false)
     const [error, setError] = useState<Error>()
 
-    useEffect(() => {
-        fetchNotes()           
-    }, [])      
-
     function fetchNotes() {
         fetch('http://localhost:8080/notes', {
             headers: {
@@ -44,9 +40,14 @@ export default function NoteTable(){
         })
         , (error: Error) => {
             setError(error)
-        }        
+        }      
                
-    }
+    }    
+
+    useEffect(() => {
+        fetchNotes()           
+    }, [])     
+
 
     if(error){
         return <div>{error.message}</div>
@@ -58,7 +59,7 @@ export default function NoteTable(){
     else{
         return(
             <div>
-                <NoteTaking />
+                <NoteTaking setNotes={setNotes}/>
                 {notes.map((note) => <NoteDisplay note={note} key={note._id} deleteNote_={deleteNote}/>)}
             </div>
         )

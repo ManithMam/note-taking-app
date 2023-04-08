@@ -13,11 +13,12 @@ noteRouter.get('/notes', async (req, res) => {
    } 
 })
 
-noteRouter.post('/notes', (req, res) => {
+noteRouter.post('/notes', async (req, res) => {
     try{
         const noteContent: string = req.body.content
-        const newNote = NoteController.createNote(noteContent)
-        res.json(newNote).status(200)
+        await NoteController.createNote(noteContent)
+        const newNotes = await NoteController.getNotes()   
+        res.json(newNotes).status(200)
     }
     catch(err){
         res.status(500).send('Internal Server Error')

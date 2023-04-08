@@ -7,7 +7,7 @@ POST http://localhost:8080/notes HTTP/1.1
 content-type: application/json
 
 {
-    "content": "test4"
+    "content": "Test"
 }
 
 ###
