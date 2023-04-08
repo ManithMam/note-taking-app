@@ -1,10 +1,9 @@
-import Login from "./Login";
+
 import NoteTable from "./NoteTable/NoteTable";
 
 export default function NoteApp(){
     return (
-        <div>           
-            <Login />
+        <div>          
             <NoteTable />
         </div>
     );
