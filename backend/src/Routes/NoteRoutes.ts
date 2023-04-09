@@ -13,15 +13,6 @@ noteRouter.get('/notes', async (req, res, next) => {
    } 
 })
 
-noteRouter.get('/', (req, res, next) => {
-    try{
-        throw new Error('Sth went wrong')
-    }
-    catch(err){
-        next(err)
-    }
-})
-
 noteRouter.post('/notes', async (req, res, next) => {
     try{
         const noteContent: string = req.body.content

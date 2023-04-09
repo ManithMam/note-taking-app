@@ -17,40 +17,8 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:8080/notes/6430578f9caab98499b17f63 HTTP/1.1
+DELETE http://localhost:8080/notes/6432d60fa69610bae43b1c41 HTTP/1.1
 Content-Type: application/json
 
-###
 
-POST http://localhost:3000/users HTTP/1.1
-content-type: application/json
 
-{
-    "username": "User123",
-    "password": "123password123"
-}
-
-###
-
-PATCH http://localhost:3000/users HTTP/1.1
-content-type: application/json
-
-{
-    "noteContent": "A new task",
-    "username": "User123"
-}
-
-###
-
-PATCH http://localhost:3000/users/deleteNote HTTP/1.1
-content-type: application/json
-
-{
-    "noteId": "64284eac0c33b4d6ba30290b",
-    "username": "User123"
-}
-
-###
-
-GET http://localhost:3000/users/User123 HTTP/1.1
-content-type: application/json

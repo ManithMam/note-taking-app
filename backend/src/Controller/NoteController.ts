@@ -5,11 +5,10 @@ async function createNote(contentInput: string){
         const note = new Note({
             content: contentInput
         })        
-        note.save()        
-        console.log(note)
+        note.save()               
     }
     catch(err){
-        console.log('error couldnt create')
+        console.error(err)
     }        
 }
 
@@ -18,12 +17,12 @@ async function deleteNote(id: string){
         await Note.deleteOne({_id: id})
     }
     catch(err){
-        console.log('couldnt delete')
+        console.error(err)
     }       
 }
 
- function getNotes(){
-    const note = Note.find({})
+async function getNotes(){
+    const note = await Note.find({})
     return note
 }
 
