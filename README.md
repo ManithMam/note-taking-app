@@ -1,0 +1,1 @@
+This is a simple note-taking-app created with React, Node.js, Express, Typescript and MondoDB
