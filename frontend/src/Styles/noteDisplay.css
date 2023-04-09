@@ -1,0 +1,15 @@
+.noteDeleteButton {
+    color: black;
+    margin-left: 1em;
+}
+
+.noteContent {
+    display: inline;
+}
+
+.noteEntrie {
+    margin: 2em;
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+}

@@ -2,6 +2,7 @@ import NoteTaking from "./NoteTaking"
 import NoteDisplay from "./NoteDisplay"
 import { useEffect, useState } from "react"
 import { note } from "../../Types/note"
+import "../../Styles/noteTable.css"
 
 export default function NoteTable(){
 

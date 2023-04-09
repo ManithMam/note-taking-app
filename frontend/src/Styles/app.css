@@ -1,4 +1,20 @@
-body {
-    background-color: #464045;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* {
+    font-family: 'Noto Sans', sans-serif;
+    color: rgb(221, 221, 221);
 }
+
+body {
+    background-color: #2c2a2c;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 

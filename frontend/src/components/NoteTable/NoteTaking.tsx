@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import "../../Styles/noteTaking.css"
 
 export default function NoteTaking(props: {setNotes: Function, setError: Function} ){     
     
