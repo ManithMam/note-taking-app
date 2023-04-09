@@ -1,6 +1,15 @@
-import NoteApp from "./components/NoteApp";
-
+import Title from "./components/Title";
+import NoteTable from "./components/NoteTable/NoteTable";
 
 export default function App(){
-    return <NoteApp />;
+    return (
+        <div>   
+            <header>
+                <Title />
+            </header>       
+            <body>
+                <NoteTable />
+            </body>            
+        </div>
+    );
 }
