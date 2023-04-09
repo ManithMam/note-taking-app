@@ -1,5 +1,7 @@
+import "../Styles/title.css"
+
 export default function Title(){
     return(
-        <h1>Note</h1>
+        <h1 className="appTitle">Note</h1>
     )
 }

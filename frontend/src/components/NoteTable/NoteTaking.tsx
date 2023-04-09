@@ -22,15 +22,13 @@ export default function NoteTaking(props: {setNotes: Function, setError: Functio
         }   
     }       
 
-    return (
-        <div>            
-            <form>
-                <label>
-                    Enter Note:
-                    <input type="text" ref={input}/>
-                </label>                 
-                <button onClick={sendNotes}>Create new note</button>            
-            </form>
-        </div>
+    return (                   
+        <form className="noteTakingForm">
+            <label className="noteLabel">
+                Enter Note:
+                <input type="text" ref={input} className="inputField"/>
+            </label>                 
+            <button onClick={sendNotes} className="noteCreateButton">Create new note</button>            
+        </form>        
     );
 }
