@@ -42,10 +42,10 @@ export default function NoteTable(){
         .then(res =>  res.json())
         .then((remainingNotes) => {
             setNotes(remainingNotes)
-        })
-        , (error: Error) => {
+        }, (error: Error) => {
             setError(error)
-        }                    
+        })
+                          
     }
 
     if(error){

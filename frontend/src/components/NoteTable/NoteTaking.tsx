@@ -19,12 +19,12 @@ export default function NoteTaking(props: {setNotes: Function, setError: Functio
             mode: "cors"         
         })
         .then(res => res.json())
-        .then(((newNotes) => {
+        .then(newNotes => {
             setNotes(newNotes)
-        } ))
-        , (error: Error) => {
+        }, (error: Error) => {
             setError(error)
-        }   
+        })
+          
     }       
 
     return (                   
