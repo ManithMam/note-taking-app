@@ -15,7 +15,7 @@ export default function NoteTable(){
     }, [])  
 
     function fetchNotes() {
-        fetch('http://localhost:8080/notes', {
+         fetch('http://localhost:8080/notes', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export default function NoteTable(){
             method: "GET",
             mode: "cors"
         })
-            .then(res => res.json())
+        .then(res => res.json())
             .then( (notesFromDB) => {
                 setLoaded(true)
                 setNotes(notesFromDB)
@@ -34,7 +34,7 @@ export default function NoteTable(){
     }
 
     function deleteNote(note: note){
-        fetch(`http://localhost:8080/notes/${note._id}`, {
+        const noteFetch = fetch(`http://localhost:8080/notes/${note._id}`, {
             headers: { 'Content-Type': 'application/json' },
             method: "DELETE",
             mode: "cors"
@@ -42,10 +42,10 @@ export default function NoteTable(){
         .then(res =>  res.json())
         .then((remainingNotes) => {
             setNotes(remainingNotes)
-        })
-        , (error: Error) => {
+        }, (error: Error) => {
             setError(error)
-        }                    
+        })
+                         
     }
 
     if(error){

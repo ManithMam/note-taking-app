@@ -12,19 +12,19 @@ export default function NoteTaking(props: {setNotes: Function, setError: Functio
             return alert("Please enter a value.")
         }
 
-        fetch('http://localhost:8080/notes', {
+         fetch('http://localhost:8080/notes', {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({content: input.current?.value}),
             method: "POST",
             mode: "cors"         
         })
         .then(res => res.json())
-        .then(((newNotes) => {
+        .then(newNotes => {
             setNotes(newNotes)
-        } ))
-        , (error: Error) => {
+        }, (error: Error) => {
             setError(error)
-        }   
+        })
+        
     }       
 
     return (                   
