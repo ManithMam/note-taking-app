@@ -56,9 +56,6 @@ https://www.mongodb.com/try/download/compass
  ```
  3. Site can now be visited under http://localhost:3000/
 
-# Contact
-
-Manith Mam - ManithMam@proton.me - https://www.linkedin.com/in/manithmam/
 
 
 
